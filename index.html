@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLUXO — Mentoria de Marketing Digital | Do zero ao digital. Sem atalhos.</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════
+   FLUXO — Landing Page Premium
+   Dark · Dourado · Roxo
+═══════════════════════════════ */
+
+:root {
+  --p:    #080808;
+  --p2:   #0F0F0F;
+  --p3:   #161616;
+  --p4:   #1E1E1E;
+  --cz:   #252525;
+  --czm:  #4A4A4A;
+  --czl:  #888;
+  --br:   #F4F4F2;
+  --br2:  #C8C8C6;
+  --ouro: #D4A843;
+  --ouroL:#F0C96A;
+  --ouroE:#A88230;
+  --roxo: #7B4FD4;
+  --roxoL:#9B72F0;
+  --grad: linear-gradient(135deg, #D4A843 0%, #7B4FD4 100%);
+  --grad2:linear-gradient(135deg, #F0C96A 0%, #9B72F0 100%);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--p);color:var(--br);overflow-x:hidden}
+
+/* ── TEXTO GRADIENTE ── */
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-text2{background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── BARRA URGÊNCIA ── */
+#urgency-bar{background:var(--grad);padding:.45rem 0;text-align:center;position:relative;z-index:200}
+#urgency-bar p{font-family:'DM Sans',monospace;font-size:.78rem;font-weight:500;letter-spacing:.04em;color:var(--p);margin:0}
+#urgency-bar span{font-weight:700}
+
+/* ── NAVBAR ── */
+#nav{
+  position:fixed;top:36px;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 3rem;
+  transition:padding .35s,background .35s,border-color .35s,top .35s;
+  border-bottom:1px solid transparent;
+}
+#nav.sc{
+  top:0;
+  padding:.65rem 3rem;
+  background:rgba(8,8,8,.97);
+  border-bottom-color:var(--cz);
+  backdrop-filter:blur(16px);
+}
+
+.nav-logo{
+  font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;
+  letter-spacing:.06em;color:var(--br);text-decoration:none;
+}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.nav-cta{
+  font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;
+  letter-spacing:.04em;text-decoration:none;
+  background:var(--grad);color:var(--p);
+  padding:.6rem 1.5rem;
+  transition:opacity .2s,transform .15s;
+}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px);color:var(--p)}
+
+/* ── CANVAS PARTÍCULAS ── */
+#particles{position:absolute;inset:0;z-index:0;pointer-events:none}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:10rem 2rem 5rem;
+  overflow:hidden;
+}
+
+.hero-noise{
+  position:absolute;inset:0;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+
+.hero-glow{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle, rgba(123,79,212,.18) 0%, transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:pulso 6s ease-in-out infinite;pointer-events:none;z-index:0;
+}
+
+.hero-glow2{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle, rgba(212,168,67,.12) 0%, transparent 70%);
+  top:30%;right:10%;
+  animation:pulso 8s ease-in-out infinite .5s;pointer-events:none;z-index:0;
+}
+
+.hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;
+  border:1px solid rgba(212,168,67,.3);
+  color:var(--ouroL);padding:.4rem 1.1rem;
+  margin-bottom:2rem;
+  opacity:0;animation:fadeUp .7s ease forwards .2s;
+}
+
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ouro);animation:pisca 1.5s infinite}
+
+.hero-titulo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(3rem,8vw,6.5rem);line-height:.95;letter-spacing:-.02em;
+  margin-bottom:1.5rem;
+  opacity:0;animation:fadeUp .7s ease forwards .4s;
+}
+
+.hero-titulo em{
+  font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+  display:block;font-size:1.1em;
+}
+
+.hero-sub{
+  font-size:1.1rem;font-weight:300;color:var(--czl);
+  line-height:1.8;max-width:640px;margin:0 auto 2.5rem;
+  opacity:0;animation:fadeUp .7s ease forwards .6s;
+}
+
+.hero-sub strong{color:var(--br);font-weight:500}
+
+.hero-cta-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:.75rem;
+  opacity:0;animation:fadeUp .7s ease forwards .8s;
+}
+
+.btn-hero{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;
+  letter-spacing:.04em;text-decoration:none;
+  background:var(--grad);color:var(--p);
+  padding:1.1rem 3rem;
+  transition:opacity .2s,transform .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.btn-hero::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);opacity:0;transition:opacity .2s}
+.btn-hero:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(123,79,212,.35);color:var(--p)}
+.btn-hero:hover::after{opacity:1}
+
+.hero-garantia{
+  font-family:'DM Sans',sans-serif;font-size:.75rem;
+  color:var(--czm);letter-spacing:.04em;
+  display:flex;align-items:center;gap:.4rem;
+}
+.hero-garantia i{color:var(--ouro)}
+
+.hero-vagas{
+  margin-top:2rem;
+  font-family:'DM Sans',sans-serif;font-size:.78rem;
+  color:var(--czl);letter-spacing:.04em;
+  opacity:0;animation:fadeUp .7s ease forwards 1s;
+}
+
+.vagas-bar{
+  width:280px;height:4px;background:var(--cz);
+  margin:.5rem auto 0;overflow:hidden;
+}
+.vagas-fill{height:100%;background:var(--grad);width:73%;animation:fillBar 1.5s ease forwards 1.2s}
+
+/* ── PROVA SOCIAL RÁPIDA ── */
+.sec-prova-rapida{
+  background:var(--p2);border-top:1px solid var(--cz);border-bottom:1px solid var(--cz);
+  padding:1.5rem 0;overflow:hidden;
+}
+.prova-track{
+  display:inline-flex;gap:3rem;
+  animation:ticker 30s linear infinite;white-space:nowrap;
+}
+.prova-track span{
+  font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--czm);
+  display:flex;align-items:center;gap:.5rem;flex-shrink:0;
+}
+.prova-track span i{color:var(--ouro)}
+.prova-track strong{color:var(--br2)}
+
+/* ── NÚMEROS ── */
+.sec-numeros{padding:5rem 2.5rem;background:var(--p)}
+.num-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--cz);
+  border:1px solid var(--cz);
+}
+.num-item{
+  background:var(--p);padding:2.5rem 2rem;text-align:center;
+  transition:background .2s;
+}
+.num-item:hover{background:var(--p2)}
+.num-val{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.5rem,5vw,4rem);line-height:1;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.35rem;
+}
+.num-lbl{font-size:.82rem;font-weight:300;color:var(--czl);letter-spacing:.04em}
+
+/* ── DOR / PROBLEMA ── */
+.sec-dor{
+  padding:6rem 2.5rem;background:var(--p2);
+  border-top:1px solid var(--cz);position:relative;overflow:hidden;
+}
+.dor-glow{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,67,.06) 0%,transparent 70%);
+  top:50%;right:-100px;transform:translateY(-50%);pointer-events:none;
+}
+.dor-intro{font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);margin-bottom:1rem;display:block}
+.dor-titulo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.02em;
+  margin-bottom:2.5rem;
+}
+.dor-lista{display:flex;flex-direction:column;gap:1rem}
+.dor-item{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.2rem 1.5rem;
+  background:var(--p3);border:1px solid var(--cz);
+  transition:border-color .2s;
+}
+.dor-item:hover{border-color:rgba(212,168,67,.2)}
+.dor-item i{font-size:1.1rem;color:var(--ouro);flex-shrink:0;margin-top:.1rem}
+.dor-item p{font-size:.92rem;font-weight:300;color:var(--br2);line-height:1.65;margin:0}
+.dor-item p strong{color:var(--br);font-weight:500}
+
+.solucao-box{
+  background:linear-gradient(135deg,rgba(212,168,67,.08) 0%,rgba(123,79,212,.08) 100%);
+  border:1px solid rgba(212,168,67,.2);
+  padding:2.5rem;margin-top:2.5rem;
+}
+.solucao-box p{font-size:1rem;font-weight:300;color:var(--br2);line-height:1.8;margin:0}
+.solucao-box p strong{color:var(--ouroL);font-weight:600}
+
+/* ── MÓDULOS ── */
+.sec-modulos{padding:6rem 2.5rem;background:var(--p);border-top:1px solid var(--cz)}
+.modulos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:3rem}
+.modulo-card{
+  background:var(--p2);border:1px solid var(--cz);
+  padding:2rem 1.75rem;position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.modulo-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,168,67,.05) 0%,rgba(123,79,212,.05) 100%);
+  opacity:0;transition:opacity .3s;
+}
+.modulo-card:hover{border-color:rgba(212,168,67,.3);transform:translateY(-4px)}
+.modulo-card:hover::before{opacity:1}
+.modulo-num{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:4rem;line-height:1;
+  color:rgba(212,168,67,.1);position:absolute;top:.5rem;right:1rem;
+  transition:color .3s;pointer-events:none;
+}
+.modulo-card:hover .modulo-num{color:rgba(212,168,67,.2)}
+.modulo-icon{
+  width:44px;height:44px;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:var(--p);margin-bottom:1.25rem;
+}
+.modulo-titulo{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:1.05rem;color:var(--br);margin-bottom:.6rem;
+}
+.modulo-desc{font-size:.85rem;font-weight:300;color:var(--czl);line-height:1.75;margin-bottom:1.1rem}
+.modulo-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.modulo-tag{
+  font-size:.65rem;font-weight:500;letter-spacing:.06em;
+  color:var(--ouro);border:1px solid rgba(212,168,67,.25);
+  padding:.15rem .55rem;
+}
+
+/* ── MENTOR ── */
+.sec-mentor{
+  display:grid;grid-template-columns:1fr 1fr;
+  background:var(--p2);border-top:1px solid var(--cz);
+}
+.mentor-img-wrap{position:relative;overflow:hidden;min-height:560px}
+.mentor-img-wrap img{width:100%;height:100%;object-fit:cover;filter:saturate(.5) brightness(.7);transition:filter .5s}
+.mentor-img-wrap:hover img{filter:saturate(.8) brightness(.8)}
+.mentor-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--p2) 0%,transparent 30%),linear-gradient(to top,var(--p2) 0%,transparent 40%)}
+.mentor-badge-float{
+  position:absolute;bottom:2rem;left:2rem;
+  background:var(--grad);color:var(--p);
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:.85rem;letter-spacing:.04em;
+  padding:.55rem 1.2rem;
+}
+
+.mentor-txt{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+.mentor-txt p{font-size:.92rem;font-weight:300;color:var(--czl);line-height:1.85;margin-bottom:1rem}
+.mentor-midia{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;
+  padding-top:2rem;border-top:1px solid var(--cz);
+}
+.midia-badge{
+  font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--czm);color:var(--czm);padding:.35rem .85rem;
+  transition:border-color .2s,color .2s;
+}
+.midia-badge:hover{border-color:var(--ouro);color:var(--ouro)}
+.mentor-creds{display:flex;gap:2rem;margin-top:2rem}
+.cred-item{display:flex;flex-direction:column;gap:.2rem}
+.cred-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cred-lbl{font-size:.75rem;color:var(--czl)}
+
+/* ── DEPOIMENTOS ── */
+.sec-dep{padding:6rem 2.5rem;background:var(--p);border-top:1px solid var(--cz)}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:3rem}
+.dep-card{
+  background:var(--p2);border:1px solid var(--cz);
+  padding:2rem 1.75rem;transition:border-color .2s,transform .2s;
+}
+.dep-card:hover{border-color:rgba(212,168,67,.25);transform:translateY(-3px)}
+.dep-stars{color:var(--ouro);font-size:.85rem;letter-spacing:.08em;margin-bottom:.85rem}
+.dep-resultado{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1.35rem;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.6rem;
+}
+.dep-txt{font-size:.88rem;font-weight:300;color:var(--czl);line-height:1.75;font-style:italic;margin-bottom:1.25rem}
+.dep-autor{display:flex;align-items:center;gap:.75rem}
+.dep-foto{width:42px;height:42px;border-radius:50%;object-fit:cover;filter:saturate(.4)}
+.dep-nome{font-weight:600;font-size:.85rem;color:var(--br)}
+.dep-cargo{font-size:.72rem;color:var(--czl)}
+
+/* ── BÔNUS ── */
+.sec-bonus{padding:5rem 2.5rem;background:var(--p2);border-top:1px solid var(--cz)}
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:3rem}
+.bonus-card{
+  background:linear-gradient(135deg,rgba(212,168,67,.06) 0%,rgba(123,79,212,.06) 100%);
+  border:1px solid rgba(212,168,67,.15);
+  padding:2rem 1.75rem;position:relative;
+}
+.bonus-tag{
+  position:absolute;top:-1px;left:1.75rem;
+  background:var(--grad);color:var(--p);
+  font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:.2rem .65rem;
+}
+.bonus-icon{font-size:1.6rem;color:var(--ouro);margin-bottom:1rem;display:block;margin-top:.5rem}
+.bonus-titulo{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--br);margin-bottom:.5rem}
+.bonus-desc{font-size:.85rem;font-weight:300;color:var(--czl);line-height:1.7;margin-bottom:.75rem}
+.bonus-valor{font-family:'Syne',sans-serif;font-size:.85rem;color:var(--ouroL)}
+.bonus-valor span{text-decoration:line-through;color:var(--czm);font-weight:300;font-size:.8rem;margin-left:.3rem}
+
+/* ── PREÇO ── */
+.sec-preco{
+  padding:6rem 2.5rem;
+  background:var(--p);
+  border-top:1px solid var(--cz);
+  text-align:center;position:relative;overflow:hidden;
+}
+.preco-glow{
+  position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(123,79,212,.1) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+}
+.preco-box{
+  max-width:560px;margin:3rem auto 0;
+  background:var(--p2);border:1px solid var(--cz);
+  padding:3rem;position:relative;z-index:1;
+}
+.preco-box::before{
+  content:'';position:absolute;inset:-1px;
+  background:var(--grad);z-index:-1;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask-composite:exclude;padding:1px;
+}
+.preco-tag{
+  display:inline-block;
+  background:var(--grad);color:var(--p);
+  font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .9rem;margin-bottom:1.75rem;
+}
+.preco-de{font-size:.9rem;color:var(--czm);text-decoration:line-through;margin-bottom:.25rem}
+.preco-val{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:4.5rem;line-height:1;letter-spacing:-.02em;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.25rem;
+}
+.preco-parcel{font-size:.9rem;color:var(--czl);margin-bottom:2rem}
+.preco-parcel strong{color:var(--br2)}
+.preco-lista{list-style:none;text-align:left;margin-bottom:2rem;display:flex;flex-direction:column;gap:.65rem}
+.preco-lista li{display:flex;align-items:center;gap:.7rem;font-size:.88rem;font-weight:300;color:var(--br2)}
+.preco-lista li i{color:var(--ouro);font-size:.9rem;flex-shrink:0}
+.preco-garantia{
+  margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--cz);
+  display:flex;align-items:center;gap:.75rem;
+  font-size:.8rem;color:var(--czl);text-align:left;
+}
+.preco-garantia i{font-size:1.4rem;color:var(--ouro);flex-shrink:0}
+
+.btn-comprar{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;
+  font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;
+  letter-spacing:.04em;text-decoration:none;
+  background:var(--grad);color:var(--p);
+  padding:1.15rem 2rem;border:none;cursor:pointer;
+  transition:opacity .2s,transform .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.btn-comprar::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);opacity:0;transition:opacity .2s}
+.btn-comprar:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(123,79,212,.4);opacity:.95;color:var(--p)}
+.btn-comprar:hover::after{opacity:1}
+
+/* ── COUNTDOWN ── */
+.sec-countdown{
+  background:var(--p3);border-top:1px solid var(--cz);border-bottom:1px solid var(--cz);
+  padding:2rem 2.5rem;text-align:center;
+}
+.countdown-titulo{
+  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--czl);margin-bottom:1rem;
+}
+.countdown-nums{display:flex;align-items:center;justify-content:center;gap:1rem}
+.cd-bloco{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.cd-num{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;line-height:1;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cd-lbl{font-family:'DM Sans',sans-serif;font-size:.65rem;color:var(--czm);letter-spacing:.1em;text-transform:uppercase}
+.cd-sep{font-family:'Syne',sans-serif;font-size:2rem;color:var(--czm);margin-bottom:.5rem}
+
+/* ── FAQ ── */
+.sec-faq{padding:6rem 2.5rem;background:var(--p2);border-top:1px solid var(--cz)}
+.faq-lista{max-width:760px;margin:3rem auto 0}
+.faq-item{border-bottom:1px solid var(--cz)}
+.faq-btn{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 0;gap:1rem;
+  font-family:'Syne',sans-serif;font-size:.98rem;font-weight:600;
+  color:var(--br);text-align:left;transition:color .2s;
+}
+.faq-btn:hover{color:var(--ouroL)}
+.faq-icon{
+  width:28px;height:28px;border:1px solid var(--czm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:var(--czm);flex-shrink:0;
+  transition:background .2s,border-color .2s,color .2s,transform .3s;
+}
+.faq-item.open .faq-icon{background:var(--ouro);border-color:var(--ouro);color:var(--p);transform:rotate(45deg)}
+.faq-corpo{overflow:hidden;max-height:0;transition:max-height .4s ease}
+.faq-corpo p{font-size:.9rem;font-weight:300;color:var(--czl);line-height:1.85;padding-bottom:1.5rem}
+
+/* ── CTA FINAL ── */
+.sec-cta-final{
+  padding:8rem 2.5rem;text-align:center;
+  position:relative;overflow:hidden;
+  background:var(--p);border-top:1px solid var(--cz);
+}
+.cta-final-glow1{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,.12) 0%,transparent 70%);bottom:-100px;left:-100px;pointer-events:none}
+.cta-final-glow2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,79,212,.12) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.cta-final-titulo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.5rem,6vw,5rem);line-height:.95;letter-spacing:-.02em;
+  margin-bottom:1.5rem;position:relative;z-index:1;
+}
+.cta-final-sub{font-size:1rem;font-weight:300;color:var(--czl);max-width:500px;margin:0 auto 3rem;line-height:1.8;position:relative;z-index:1}
+
+/* ── RODAPÉ ── */
+footer{
+  background:var(--p2);border-top:1px solid var(--cz);
+  padding:2.5rem 2.5rem;text-align:center;
+}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:.06em;color:var(--br);margin-bottom:.75rem}
+.footer-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-links{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.footer-links a{font-size:.78rem;color:var(--czm);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ouro)}
+.footer-copy{font-size:.72rem;color:rgba(244,244,242,.18);margin-bottom:.25rem}
+.footer-fict{font-size:.7rem;color:rgba(244,244,242,.14);font-style:italic;margin-bottom:.25rem}
+.footer-cred{font-size:.7rem;color:rgba(244,244,242,.2)}
+.footer-cred a{color:var(--ouro);text-decoration:none}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rev.on{opacity:1;transform:translateY(0)}
+.rev-l{opacity:0;transform:translateX(-28px);transition:opacity .75s ease,transform .75s ease}
+.rev-l.on{opacity:1;transform:translateX(0)}
+.rev-r{opacity:0;transform:translateX(28px);transition:opacity .75s ease,transform .75s ease}
+.rev-r.on{opacity:1;transform:translateX(0)}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulso{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+@keyframes pisca{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes fillBar{from{width:0}to{width:73%}}
+
+/* ── RESPONSIVO ── */
+@media(max-width:991px){
+  #nav{padding:.8rem 1.5rem}
+  #nav.sc{padding:.6rem 1.5rem}
+  .sec-mentor{grid-template-columns:1fr}
+  .mentor-img-wrap{min-height:320px}
+  .mentor-txt{padding:3rem 1.5rem}
+  .num-grid{grid-template-columns:repeat(2,1fr)}
+  .modulos-grid,.dep-grid,.bonus-grid{grid-template-columns:1fr}
+  .sec-numeros,.sec-dor,.sec-modulos,.sec-dep,.sec-bonus,.sec-preco,.sec-faq,.sec-cta-final{padding:4rem 1.5rem}
+  .preco-box{padding:2rem 1.5rem}
+}
+@media(max-width:576px){
+  .mentor-creds{flex-wrap:wrap;gap:1.25rem}
+  .countdown-nums{gap:.5rem}
+  .cd-num{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- URGÊNCIA -->
+<div id="urgency-bar">
+  <p>⚡ Turma 2026 com <span>vagas limitadas</span> — apenas <span id="vagasRestantes">14</span> vagas disponíveis</p>
+</div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <a href="#" class="nav-logo">FLU<em>XO</em></a>
+  <a href="#preco" class="nav-cta">Garantir minha vaga →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span></span>
+      Mentoria premium · Marketing Digital
+    </div>
+
+    <h1 class="hero-titulo">
+      Pare de improvisar.<br>
+      <em class="grad-text">Comece a <span style="color:inherit">escalar.</span></em>
+    </h1>
+
+    <p class="hero-sub">
+      O método que levou <strong>+3.200 alunos</strong> a faturar de forma consistente no digital —
+      mesmo sem audiência, sem produto pronto e sem experiência anterior.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="#preco" class="btn-hero">
+        <i class="bi bi-lightning-charge-fill"></i>
+        Quero entrar na próxima turma
+      </a>
+      <span class="hero-garantia">
+        <i class="bi bi-shield-check-fill"></i>
+        Garantia incondicional de 7 dias · Sem burocracia
+      </span>
+    </div>
+
+    <div class="hero-vagas">
+      <p>🔥 73% das vagas já preenchidas</p>
+      <div class="vagas-bar"><div class="vagas-fill"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL TICKER -->
+<div class="sec-prova-rapida">
+  <div class="prova-track">
+    <span><i class="bi bi-star-fill"></i> <strong>Rafael A.</strong> faturou R$12.400 no 1º mês</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Camila S.</strong> saiu do zero em 60 dias</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Lucas M.</strong> largou o emprego em 4 meses</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Ana P.</strong> faturou R$8.000 na primeira campanha</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Pedro T.</strong> escalou para R$30k/mês em 6 meses</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Julia R.</strong> 4.2x de ROAS na primeira semana</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Rafael A.</strong> faturou R$12.400 no 1º mês</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Camila S.</strong> saiu do zero em 60 dias</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Lucas M.</strong> largou o emprego em 4 meses</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Ana P.</strong> faturou R$8.000 na primeira campanha</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Pedro T.</strong> escalou para R$30k/mês em 6 meses</span>
+    <span><i class="bi bi-star-fill"></i> <strong>Julia R.</strong> 4.2x de ROAS na primeira semana</span>
+  </div>
+</div>
+
+<!-- NÚMEROS -->
+<section class="sec-numeros">
+  <div class="text-center rev">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">Resultados reais</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em">Os números falam<br>por si só</h2>
+  </div>
+  <div class="num-grid" style="margin-top:3rem">
+    <div class="num-item rev">
+      <div class="num-val count-num" data-target="3200" data-suffix="+">0</div>
+      <div class="num-lbl">Alunos formados</div>
+    </div>
+    <div class="num-item rev" data-d=".1">
+      <div class="num-val count-num" data-target="4.8" data-suffix="">0</div>
+      <div class="num-lbl">Avaliação média</div>
+    </div>
+    <div class="num-item rev" data-d=".2">
+      <div class="num-val count-num" data-target="7" data-suffix=" anos">0</div>
+      <div class="num-lbl">De experiência</div>
+    </div>
+    <div class="num-item rev" data-d=".3">
+      <div class="num-val count-num" data-target="91" data-suffix="%">0</div>
+      <div class="num-lbl">Aprovação dos alunos</div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div class="sec-countdown">
+  <p class="countdown-titulo">⏳ Turma 2026 fecha em</p>
+  <div class="countdown-nums">
+    <div class="cd-bloco"><span class="cd-num" id="cdH">00</span><span class="cd-lbl">horas</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-bloco"><span class="cd-num" id="cdM">00</span><span class="cd-lbl">minutos</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-bloco"><span class="cd-num" id="cdS">00</span><span class="cd-lbl">segundos</span></div>
+  </div>
+</div>
+
+<!-- DOR / PROBLEMA -->
+<section class="sec-dor">
+  <div class="dor-glow"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 rev-l">
+        <span class="dor-intro">Reconhece isso?</span>
+        <h2 class="dor-titulo">Você não precisa de <span class="grad-text">mais conteúdo.</span><br>Você precisa de método.</h2>
+        <div class="solucao-box">
+          <p>A FLUXO existe pra isso: te dar um caminho claro, testado e direto ao resultado. <strong>Sem achismo, sem teoria, sem enrolação.</strong> Do primeiro anúncio ao primeiro faturamento — com estrutura.</p>
+        </div>
+      </div>
+      <div class="col-lg-7 rev-r">
+        <div class="dor-lista">
+          <div class="dor-item"><i class="bi bi-x-circle-fill" style="color:var(--roxoL)"></i><p>Você <strong>consome conteúdo</strong> de graça há meses mas ainda não sabe por onde começar a vender de verdade.</p></div>
+          <div class="dor-item"><i class="bi bi-x-circle-fill" style="color:var(--roxoL)"></i><p>Já tentou subir um tráfego pago, <strong>queimou dinheiro</strong> e ficou com medo de tentar de novo sem saber o que errou.</p></div>
+          <div class="dor-item"><i class="bi bi-x-circle-fill" style="color:var(--roxoL)"></i><p>Seu Instagram tem <strong>conteúdo mas não tem venda</strong> — você trabalha muito e converte pouco.</p></div>
+          <div class="dor-item"><i class="bi bi-x-circle-fill" style="color:var(--roxoL)"></i><p>Todo mês começa do zero, <strong>sem previsibilidade</strong> e sem saber o que vai funcionar.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<section class="sec-modulos">
+  <div class="text-center rev">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">O que você vai aprender</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em">8 módulos.<br><span class="grad-text">1 transformação.</span></h2>
+  </div>
+  <div class="modulos-grid">
+    <div class="modulo-card rev">
+      <div class="modulo-num">01</div>
+      <div class="modulo-icon"><i class="bi bi-compass"></i></div>
+      <div class="modulo-titulo">Fundação Digital</div>
+      <p class="modulo-desc">Posicionamento, nicho, avatar de cliente e proposta de valor irresistível. O que vender, para quem e como se destacar antes de gastar R$1.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Nicho</span><span class="modulo-tag">Posicionamento</span><span class="modulo-tag">Avatar</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".06">
+      <div class="modulo-num">02</div>
+      <div class="modulo-icon"><i class="bi bi-megaphone"></i></div>
+      <div class="modulo-titulo">Tráfego Pago do Zero</div>
+      <p class="modulo-desc">Meta Ads e Google Ads na prática. Estrutura de campanhas, públicos, criativos que convertem e como escalar sem perder ROAS.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Meta Ads</span><span class="modulo-tag">Google Ads</span><span class="modulo-tag">ROAS</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".12">
+      <div class="modulo-num">03</div>
+      <div class="modulo-icon"><i class="bi bi-pen"></i></div>
+      <div class="modulo-titulo">Copy que Vende</div>
+      <p class="modulo-desc">Gatilhos mentais, headlines que param o scroll, estrutura de páginas de venda e scripts de stories. O texto que transforma clique em compra.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Copy</span><span class="modulo-tag">Gatilhos</span><span class="modulo-tag">VSL</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".18">
+      <div class="modulo-num">04</div>
+      <div class="modulo-icon"><i class="bi bi-instagram"></i></div>
+      <div class="modulo-titulo">Instagram que Converte</div>
+      <p class="modulo-desc">Estratégia de conteúdo, bio que capta, stories de venda, reels virais e como transformar seguidor em cliente sem mendigar atenção.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Conteúdo</span><span class="modulo-tag">Stories</span><span class="modulo-tag">Reels</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".24">
+      <div class="modulo-num">05</div>
+      <div class="modulo-icon"><i class="bi bi-envelope-check"></i></div>
+      <div class="modulo-titulo">E-mail & Automação</div>
+      <p class="modulo-desc">Sequências de e-mail que vendem no automático, nutrição de leads e como construir uma lista que vale ouro mesmo com poucos inscritos.</p>
+      <div class="modulo-tags"><span class="modulo-tag">E-mail</span><span class="modulo-tag">Automação</span><span class="modulo-tag">Funil</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".3">
+      <div class="modulo-num">06</div>
+      <div class="modulo-icon"><i class="bi bi-graph-up-arrow"></i></div>
+      <div class="modulo-titulo">Escala & Previsibilidade</div>
+      <p class="modulo-desc">Como estruturar um negócio digital que cresce de forma consistente: métricas que importam, como tomar decisões com dados e escalar sem caos.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Métricas</span><span class="modulo-tag">Escala</span><span class="modulo-tag">Dados</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".36">
+      <div class="modulo-num">07</div>
+      <div class="modulo-icon"><i class="bi bi-people"></i></div>
+      <div class="modulo-titulo">Afiliados & Parcerias</div>
+      <p class="modulo-desc">Como trabalhar como afiliado de forma estratégica ou estruturar seu próprio programa de afiliados para multiplicar vendas sem aumentar custo.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Afiliados</span><span class="modulo-tag">Hotmart</span><span class="modulo-tag">Parcerias</span></div>
+    </div>
+    <div class="modulo-card rev" data-d=".42">
+      <div class="modulo-num">08</div>
+      <div class="modulo-icon"><i class="bi bi-trophy"></i></div>
+      <div class="modulo-titulo">Lançamento & Perpétuo</div>
+      <p class="modulo-desc">Estratégia completa de lançamento digital e como estruturar uma máquina de vendas perpétua que funciona 24h por dia sem você estar presente.</p>
+      <div class="modulo-tags"><span class="modulo-tag">Lançamento</span><span class="modulo-tag">Perpétuo</span><span class="modulo-tag">Escala</span></div>
+    </div>
+    <!-- card CTA especial -->
+    <div class="modulo-card rev" data-d=".48" style="background:var(--grad);border-color:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2.5rem">
+      <i class="bi bi-plus-circle" style="font-size:2rem;color:var(--p);margin-bottom:1rem"></i>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--p);margin-bottom:.5rem">+ 3 Bônus<br>Exclusivos</div>
+      <p style="font-size:.82rem;color:rgba(8,8,8,.7);font-weight:300;margin-bottom:1.25rem">Ferramentas, templates e acesso vitalício à comunidade</p>
+      <a href="#preco" style="background:var(--p);color:var(--ouro);font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:.7rem 1.5rem;text-decoration:none;display:inline-block">Ver tudo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section class="sec-mentor">
+  <div class="mentor-img-wrap rev-l">
+    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=85" alt="Mentor FLUXO">
+    <div class="mentor-overlay"></div>
+    <div class="mentor-badge-float">7 anos de mercado</div>
+  </div>
+  <div class="mentor-txt rev-r">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">Quem vai te mentorar</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,3.5vw,2.8rem);letter-spacing:-.02em;margin-bottom:1.5rem">Rodrigo Campos</h2>
+    <p>Especialista em marketing digital com 7 anos de mercado e mais de R$ 12 milhões em vendas gerenciadas. Trabalhou com marcas como Magazine Luiza, iFood e Nubank antes de decidir ensinar o que aprendeu.</p>
+    <p>Hoje lidera uma das mentorias de marketing digital com maior taxa de satisfação do Brasil — 91% dos alunos recomendam para outras pessoas.</p>
+    <p style="margin-bottom:0">Não é teórico. É um profissional que ainda atua no mercado todo dia e traz aprendizados reais pra dentro da FLUXO.</p>
+    <div class="mentor-creds">
+      <div class="cred-item"><span class="cred-val">R$12M+</span><span class="cred-lbl">em vendas gerenciadas</span></div>
+      <div class="cred-item"><span class="cred-val">3.200+</span><span class="cred-lbl">alunos formados</span></div>
+      <div class="cred-item"><span class="cred-val">91%</span><span class="cred-lbl">taxa de aprovação</span></div>
+    </div>
+    <div class="mentor-midia">
+      <span class="midia-badge">Veja na Forbes</span>
+      <span class="midia-badge">Exame</span>
+      <span class="midia-badge">Startups.com.br</span>
+      <span class="midia-badge">Podcast MktPlay</span>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec-dep">
+  <div class="text-center rev">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">Resultados reais de alunos reais</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em">Eles decidiram.<br><span class="grad-text">Mudaram.</span></h2>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card rev">
+      <div class="dep-stars">★★★★★</div>
+      <div class="dep-resultado">R$ 12.400 no 1º mês</div>
+      <p class="dep-txt">"Eu tinha tentado de tudo antes da FLUXO. Em 30 dias com o método do Rodrigo eu já tinha feito mais do que em 1 ano de tentativas. O módulo de copy mudou minha vida."</p>
+      <div class="dep-autor">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Rafael" class="dep-foto">
+        <div><div class="dep-nome">Rafael Andrade</div><div class="dep-cargo">Afiliado · São Paulo</div></div>
+      </div>
+    </div>
+    <div class="dep-card rev" data-d=".1">
+      <div class="dep-stars">★★★★★</div>
+      <div class="dep-resultado">Largou o emprego em 4 meses</div>
+      <p class="dep-txt">"Entrei sem saber nada sobre tráfego pago. Hoje gerencio campanhas de R$50k/mês pra clientes. A FLUXO não é um curso — é uma virada de chave."</p>
+      <div class="dep-autor">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="Camila" class="dep-foto">
+        <div><div class="dep-nome">Camila Souza</div><div class="dep-cargo">Gestora de Tráfego · Campinas</div></div>
+      </div>
+    </div>
+    <div class="dep-card rev" data-d=".2">
+      <div class="dep-stars">★★★★★</div>
+      <div class="dep-resultado">R$ 30k/mês em 6 meses</div>
+      <p class="dep-txt">"Passei 2 anos vendo YouTube e não saía do lugar. 6 meses de FLUXO e estou faturando mais do que nunca faturei na vida. Método, clareza e suporte real."</p>
+      <div class="dep-autor">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="Pedro" class="dep-foto">
+        <div><div class="dep-nome">Pedro Tavares</div><div class="dep-cargo">Infoprodutor · Belo Horizonte</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section class="sec-bonus">
+  <div class="text-center rev">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">Só quem entra agora</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em">Bônus exclusivos<br><span class="grad-text">para esta turma</span></h2>
+  </div>
+  <div class="bonus-grid">
+    <div class="bonus-card rev">
+      <div class="bonus-tag">Bônus 01</div>
+      <i class="bi bi-collection bonus-icon"></i>
+      <div class="bonus-titulo">Pack de Templates de Copy</div>
+      <p class="bonus-desc">+50 templates prontos de headlines, e-mails, páginas de venda e scripts de stories. Copie, adapte e publique.</p>
+      <div class="bonus-valor">Grátis <span>Valor: R$ 297</span></div>
+    </div>
+    <div class="bonus-card rev" data-d=".1">
+      <div class="bonus-tag">Bônus 02</div>
+      <i class="bi bi-people-fill bonus-icon"></i>
+      <div class="bonus-titulo">Comunidade Vitalícia FLUXO</div>
+      <p class="bonus-desc">Grupo exclusivo com alunos ativos, lives mensais com Rodrigo, troca de experiências e suporte da equipe em tempo real.</p>
+      <div class="bonus-valor">Grátis <span>Valor: R$ 497/ano</span></div>
+    </div>
+    <div class="bonus-card rev" data-d=".2">
+      <div class="bonus-tag">Bônus 03</div>
+      <i class="bi bi-camera-video bonus-icon"></i>
+      <div class="bonus-titulo">Masterclass: Lançamento em 7 Dias</div>
+      <p class="bonus-desc">Aula ao vivo gravada com Rodrigo mostrando como fazer seu primeiro lançamento do zero em uma semana com resultado garantido.</p>
+      <div class="bonus-valor">Grátis <span>Valor: R$ 397</span></div>
+    </div>
+  </div>
+  <div class="text-center rev" style="margin-top:2.5rem">
+    <p style="font-size:.85rem;color:var(--czl)">Total em bônus: <strong style="color:var(--ouroL);font-size:1rem">R$ 1.191,00</strong> — completamente grátis pra quem entrar agora</p>
+  </div>
+</section>
+
+<!-- PREÇO -->
+<section class="sec-preco" id="preco">
+  <div class="preco-glow"></div>
+  <div class="rev" style="position:relative;z-index:1">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">Investimento</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em">Quanto vale<br><span class="grad-text">a sua transformação?</span></h2>
+  </div>
+  <div class="preco-box rev">
+    <div class="preco-tag">Oferta de lançamento</div>
+    <p class="preco-de">De R$ 1.997,00</p>
+    <div class="preco-val">R$ 997</div>
+    <p class="preco-parcel">ou <strong>12x de R$ 97,00</strong> sem juros</p>
+    <ul class="preco-lista">
+      <li><i class="bi bi-check-circle-fill"></i>8 módulos completos com +80 aulas</li>
+      <li><i class="bi bi-check-circle-fill"></i>Acesso vitalício + atualizações</li>
+      <li><i class="bi bi-check-circle-fill"></i>Comunidade exclusiva de alunos</li>
+      <li><i class="bi bi-check-circle-fill"></i>Pack de +50 templates de copy</li>
+      <li><i class="bi bi-check-circle-fill"></i>Masterclass: Lançamento em 7 dias</li>
+      <li><i class="bi bi-check-circle-fill"></i>Suporte da equipe FLUXO</li>
+      <li><i class="bi bi-check-circle-fill"></i>Certificado de conclusão</li>
+    </ul>
+    <button class="btn-comprar" onclick="window.location.href='#'">
+      <i class="bi bi-lightning-charge-fill"></i>
+      Garantir minha vaga agora
+    </button>
+    <div class="preco-garantia">
+      <i class="bi bi-shield-check-fill"></i>
+      <div>
+        <strong style="color:var(--br);display:block;font-size:.85rem">Garantia incondicional de 7 dias</strong>
+        <span>Não gostou por qualquer motivo? Devolvemos 100% do seu dinheiro. Sem perguntas.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-faq">
+  <div class="text-center rev">
+    <span style="font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:.75rem">Tire suas dúvidas</span>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em">Perguntas<br><span class="grad-text">frequentes</span></h2>
+  </div>
+  <div class="faq-lista">
+    <div class="faq-item"><button class="faq-btn">Para quem é a FLUXO? <div class="faq-icon"><i class="bi bi-plus"></i></div></button><div class="faq-corpo"><p>A FLUXO é para quem quer entrar no marketing digital, seja para trabalhar como gestor de tráfego, afiliado, lançar seu próprio produto ou prestar serviços para empresas. Não precisa de experiência prévia — o método começa do zero.</p></div></div>
+    <div class="faq-item"><button class="faq-btn">Preciso ter um produto pra vender? <div class="faq-icon"><i class="bi bi-plus"></i></div></button><div class="faq-corpo"><p>Não. Você pode começar como afiliado (vendendo produtos de outras pessoas) e ao longo da mentoria desenvolvemos juntos sua estratégia de produto, se for o seu objetivo.</p></div></div>
+    <div class="faq-item"><button class="faq-btn">Quanto tempo tenho acesso ao conteúdo? <div class="faq-icon"><i class="bi bi-plus"></i></div></button><div class="faq-corpo"><p>Acesso vitalício. Você pode assistir quantas vezes quiser, no seu ritmo, e tem acesso a todas as atualizações futuras sem pagar nada a mais.</p></div></div>
+    <div class="faq-item"><button class="faq-btn">E se eu não gostar? <div class="faq-icon"><i class="bi bi-plus"></i></div></button><div class="faq-corpo"><p>Garantia incondicional de 7 dias. Se você não ficar satisfeito por qualquer motivo, basta entrar em contato e devolvemos 100% do valor pago. Sem perguntas, sem burocracia.</p></div></div>
+    <div class="faq-item"><button class="faq-btn">Quantas horas por semana preciso dedicar? <div class="faq-icon"><i class="bi bi-plus"></i></div></button><div class="faq-corpo"><p>Recomendamos de 1 a 2 horas por dia. O conteúdo é objetivo e direto ao ponto — sem enrolação. Mas o ritmo é seu e você pode avançar no tempo que tiver disponível.</p></div></div>
+    <div class="faq-item"><button class="faq-btn">Tem suporte durante o curso? <div class="faq-icon"><i class="bi bi-plus"></i></div></button><div class="faq-corpo"><p>Sim. Você tem acesso à comunidade de alunos, suporte da equipe FLUXO e participação nas lives mensais com Rodrigo para tirar dúvidas ao vivo.</p></div></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec-cta-final">
+  <div class="cta-final-glow1"></div>
+  <div class="cta-final-glow2"></div>
+  <div style="position:relative;z-index:1">
+    <h2 class="cta-final-titulo rev">
+      Daqui a 6 meses<br>você vai estar<br>
+      <em class="grad-text2" style="font-family:'Instrument Serif',serif;font-style:italic">em outro nível.</em>
+    </h2>
+    <p class="cta-final-sub rev">A única diferença entre quem chegou lá e quem ainda está onde estava é uma decisão. Essa é a sua.</p>
+    <a href="#preco" class="btn-hero rev" style="display:inline-flex">
+      <i class="bi bi-lightning-charge-fill"></i>
+      Quero entrar na FLUXO agora
+    </a>
+    <p class="hero-garantia rev" style="justify-content:center;margin-top:1rem">
+      <i class="bi bi-shield-check-fill"></i>
+      Garantia de 7 dias · Acesso imediato · Parcela em até 12x
+    </p>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="footer-logo">FLU<em>XO</em></div>
+  <div class="footer-links">
+    <a href="#">Política de privacidade</a>
+    <a href="#">Termos de uso</a>
+    <a href="#">Contato</a>
+    <a href="#">Suporte</a>
+  </div>
+  <p class="footer-copy">© 2026 FLUXO Mentoria de Marketing Digital · Todos os direitos reservados</p>
+  <p class="footer-fict"><i class="bi bi-info-circle me-1"></i>Este é um produto fictício criado exclusivamente para fins de portfólio.</p>
+  <p class="footer-cred">Site desenvolvido por <a href="#">Marco</a> · Portfólio de desenvolvimento web</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── NAVBAR ── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
+
+/* ── PARTÍCULAS ── */
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let pts=[];
+
+function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+resize();window.addEventListener('resize',resize);
+
+for(let i=0;i<80;i++) pts.push({
+  x:Math.random()*canvas.width,y:Math.random()*canvas.height,
+  r:Math.random()*1.5+.3,
+  dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,
+  o:Math.random()*.5+.1,
+  c:Math.random()>.5?'#D4A843':'#7B4FD4'
+});
+
+function drawPts(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  pts.forEach(p=>{
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.c;ctx.globalAlpha=p.o;ctx.fill();
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+  });
+  ctx.globalAlpha=1;
+  requestAnimationFrame(drawPts);
+}
+drawPts();
+
+/* ── COUNTDOWN ── */
+const end=Date.now()+23*3600000+47*60000+12000;
+function tick(){
+  const d=end-Date.now();
+  if(d<=0){document.getElementById('cdH').textContent=document.getElementById('cdM').textContent=document.getElementById('cdS').textContent='00';return}
+  document.getElementById('cdH').textContent=String(Math.floor(d/3600000)).padStart(2,'0');
+  document.getElementById('cdM').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cdS').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+/* ── VAGAS DINÂMICAS ── */
+let vagas=14;
+setInterval(()=>{
+  if(vagas>7&&Math.random()>.7){
+    vagas--;
+    document.getElementById('vagasRestantes').textContent=vagas;
+  }
+},18000);
+
+/* ── CONTADOR ANIMADO ── */
+const cObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const target=parseFloat(el.dataset.target);
+      const suffix=el.dataset.suffix||'';
+      const isFloat=target%1!==0;
+      let cur=0;const inc=target/80;
+      const iv=setInterval(()=>{
+        cur+=inc;if(cur>=target){cur=target;clearInterval(iv)}
+        el.textContent=(target>=1000?Math.floor(cur).toLocaleString('pt-BR'):isFloat?cur.toFixed(1):Math.floor(cur))+suffix;
+      },16);
+      cObs.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.count-num').forEach(el=>cObs.observe(el));
+
+/* ── REVEAL ── */
+const rObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const d=parseFloat(e.target.dataset.d||0);
+      setTimeout(()=>e.target.classList.add('on'),d*1000);
+      rObs.unobserve(e.target);
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.rev,.rev-l,.rev-r').forEach(el=>rObs.observe(el));
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const corpo=item.querySelector('.faq-corpo');
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');i.querySelector('.faq-corpo').style.maxHeight='0';
+    });
+    if(!open){item.classList.add('open');corpo.style.maxHeight=corpo.scrollHeight+'px'}
+  });
+});
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+scrollY-70,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
