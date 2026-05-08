@@ -34,7 +34,12 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--p);color:var(--br);overflow-x:hidden}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--p);
+  color:var(--br);
+  overflow-x:hidden;
+}
 
 /* ── TEXTO GRADIENTE ── */
 .grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -81,9 +86,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--p);color:var(--br);overfl
 
 /* ── HERO ── */
 #hero{
-  position:relative;min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:10rem 2rem 5rem;
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:10rem 2rem 5rem;
   overflow:hidden;
 }
 
@@ -513,70 +522,76 @@ footer{
 @keyframes fillBar{from{width:0}to{width:73%}}
 
 /* ── RESPONSIVO ── */
+@media(max-width:991px){
+  #nav{
+    padding:.8rem 1.5rem;
   }
 
-  .faq-btn{
-    font-size:.9rem;
-    line-height:1.4;
+  #nav.sc{
+    padding:.6rem 1.5rem;
   }
 
-  .cta-final-sub{
-    font-size:.92rem;
+  .sec-mentor{
+    grid-template-columns:1fr;
   }
 
-  footer{
-    padding:2rem 1rem;
+  .mentor-img-wrap{
+    min-height:320px;
+  }
+
+  .mentor-txt{
+    padding:3rem 1.5rem;
+  }
+
+  .num-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .modulos-grid,
+  .dep-grid,
+  .bonus-grid{
+    grid-template-columns:1fr;
+  }
+
+  .sec-numeros,
+  .sec-dor,
+  .sec-modulos,
+  .sec-dep,
+  .sec-bonus,
+  .sec-preco,
+  .sec-faq,
+  .sec-cta-final{
+    padding:4rem 1.5rem;
+  }
+
+  .preco-box{
+    padding:2rem 1.5rem;
   }
 }
 
-@media(max-width:480px){
-  body{
-    overflow-x:hidden;
-  }
-
-  #urgency-bar p{
-    font-size:.68rem;
-    padding:0 .5rem;
-  }
-
+@media(max-width:768px){
   #nav{
-    flex-direction:column;
-    align-items:flex-start;
+    top:0;
+    padding:.8rem 1rem;
+  }
+
+  #nav.sc{
+    top:0;
+    padding:.7rem 1rem;
+  }
+
+  .nav-logo{
+    font-size:1.3rem;
   }
 
   .nav-cta{
-    width:100%;
-    text-align:center;
+    font-size:.72rem;
+    padding:.55rem 1rem;
   }
 
   #hero{
-    padding:8.5rem 1rem 3.5rem;
-  }
-
-  .hero-titulo{
-    font-size:2rem;
-  }
-
-  .hero-sub{
-    font-size:.9rem;
-  }
-
-  .btn-hero{
-    font-size:.88rem;
-  }
-
-  .dor-titulo,
-  .cta-final-titulo{
-    line-height:1.05;
-  }
-
-  .preco-val{
-    font-size:2.5rem;
-  }
-
-  .footer-links{
-    flex-direction:column;
-    gap:.75rem;
+    min-height:auto;
+    padding:8rem 1rem 4rem;
   }
 }
 </style>
